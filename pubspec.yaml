@@ -1,0 +1,26 @@
+name: logistic_ui
+description: Logistic UI
+version: 0.1.0
+environment:
+  sdk: '>=1.19.0 <2.0.0'
+dependencies:
+  angular2: 2.0.0-beta.22
+  browser: any
+  dart_to_js_script_rewriter: ^1.0.1
+  event_bus: "^0.4.1"
+  dartson: "^0.2.5"
+  intl: any
+  bootstrap: "^3.3.4"
+  jquery_for_pub: "1.0.0"
+transformers:
+#- di
+- dartson
+- angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+    entry_points: web/main.dart
+- dart_to_js_script_rewriter
+dev_dependencies:
+  test: ^0.12.3
