@@ -2,16 +2,15 @@ name: logistic_ui
 description: Logistic UI
 version: 0.1.0
 environment:
-  sdk: '>=1.19.0 <2.0.0'
+  sdk: '>=1.20.0 <2.0.0'
 dependencies:
-  angular2: 2.0.0-beta.22
+  angular2: ^2.0.0
+  angular2_components: ^0.1.1
   browser: any
   dart_to_js_script_rewriter: ^1.0.1
   event_bus: "^0.4.1"
   dartson: "^0.2.5"
   intl: any
-  bootstrap: "^3.3.4"
-  jquery_for_pub: "1.0.0"
 transformers:
 #- di
 - dartson

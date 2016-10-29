@@ -1,0 +1,10 @@
+<div *ngIf="user != null">
+  <h3>{{user.name}}</h3>
+  <div><label>id: </label>{{user.id}}</div>
+  <div>
+    <material-input floatingLabel label="First Name" [(ngModel)]="user.firstName"></material-input>
+    <material-input floatingLabel label="Last Name" [(ngModel)]="user.lastName"></material-input>
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>

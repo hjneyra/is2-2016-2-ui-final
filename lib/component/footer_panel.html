@@ -1,11 +1,13 @@
 <popup-dialog></popup-dialog>
 
-<div *ngIf="applicationInfo != null" class="version">
-    <a data-toggle="modal" href="#my-dialog">
-        {{applicationInfo.version}} / {{applicationInfo.buildInfo.revision}}
-    </a>
-</div>
-<div *ngIf="applicationInfo != null" class="copyright">
-    &copy;<span>{{applicationInfo.buildInfo.year}}</span> Logistic App
-    <a href="#" target="_blank" style="text-decoration: none;" *ngIf="user != null">USER: {{user.email}}</a>
-</div>
+<footer>
+    <div *ngIf="applicationInfo != null" class="version">
+        <a data-toggle="modal" href="#my-dialog">
+            {{applicationInfo.version}} / {{applicationInfo.buildInfo.revision}}
+        </a>
+    </div>
+    <div *ngIf="applicationInfo != null" class="copyright">
+        &copy;<span>{{applicationInfo.buildInfo.year}}</span> Logistic App
+        <a href="#" target="_blank" style="text-decoration: none;" *ngIf="user != null">USER: {{user.email}}</a>
+    </div>
+</footer>

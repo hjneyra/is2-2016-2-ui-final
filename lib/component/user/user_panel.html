@@ -6,12 +6,7 @@
     <span class="badge">{{user.id}}</span> {{user.firstName}} {{user.lastName}}
   </li>
 </ul>
+
 <div *ngIf="selectedUser != null">
-  <h3>{{selectedUser.name}}</h3>
-  <div><label>id: </label>{{selectedUser.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedUser.firstName" placeholder="First Name"/>
-    <input [(ngModel)]="selectedUser.lastName" placeholder="Last Name"/>
-  </div>
+  <button (click)="gotoDetail()">View Details</button>
 </div>

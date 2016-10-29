@@ -28,7 +28,7 @@ class BaseService {
     if(data==null){
       return HttpRequest.getString(url, withCredentials:false,onProgress:onProgress);
     }else{
-      return HttpRequest.request(url, method: method, withCredentials: true, requestHeaders: {"Content-Type":"application/json"}, sendData: dson.encode(data));
+      return HttpRequest.request(url, method: method, withCredentials: false, requestHeaders: {"Content-Type":"application/json"}, sendData: dson.encode(data));
     }
   }
 
@@ -55,11 +55,11 @@ class BaseService {
     return request(resourcePath, "GET");
   }
 
-  Future post(String resourcePath, String data) {
+  Future post(String resourcePath, var data) {
     return request(resourcePath, "POST", data);
   }
 
-  Future put(String resourcePath, String data) {
+  Future put(String resourcePath, var data) {
     return request(resourcePath, "PUT", data);
   }
 
@@ -79,10 +79,17 @@ class ApplicationService extends BaseService {
     });
     return completer.future;
   }
+
   Future<List<User>> getUsers() async {
     String responseText = await get('rest/v1/users');
     return dson.decode(responseText, new User(), true);
   }
+
+  Future<User> update(User user) async {
+    String responseText = await put('rest/v1/users', user);
+    return dson.decode(responseText, new User(), false);
+  }
+
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "App Stub", version: "0.0.1.DEV-MODE", buildInfo:
     new ApplicationBuildInfo(revision: "000", branch: "none", buildTime: new DateTime.now()));
